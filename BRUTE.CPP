@@ -1,7 +1,7 @@
 /**************************************
 Author: Shreays KB
 3rd BCA "B"
-date :19/11/2022
+date :18/11/2022
 **************************************/
 
 //Header files section
@@ -14,21 +14,26 @@ date :19/11/2022
 #include<ctype.h>
 
 //Global variable declation
-long int pass=123,rpass,tpass;
-char command;
+long int rpass=123,hpass=0,tpass=0,thpass=0,gpass=0,ghpass=0;
+// r-real, t-temp, g-guess, h-hash,pass-password
+char command[15];
 int count=0,choice;
 
 //function declation
 void bo(int x1, int y1,int x2,int y2);
 void lin(int x1, int y1, int x2);
 void pa(void);
+long int conv(long n);
+
 //Main section
 void main()
 {
   while(!kbhit())
   {
   clrscr();
-  gotoxy(31,7);cout<<"........Tool Menu........";
+  hpass = conv(rpass);
+  gotoxy(31,7);
+  cout<<"........Tool Menu........";
   bo(20,5,65,23);
   lin(20,9,65);
   lin(20,19,65);
@@ -57,7 +62,8 @@ void main()
       gotoxy(32,15);cout<<"Password:       ";
       gotoxy(42,15);cout<<"******";
       lin(20,19,65);
-      gotoxy(42,15);cin>>pass;
+      gotoxy(42,15);cin>>rpass;
+      hpass = conv(rpass);
       break;
     }
     case 2:
@@ -72,45 +78,44 @@ void main()
       gotoxy(42,15);cout<<"******";
       lin(20,19,65);
       gotoxy(42,15);cin>>tpass;
-      if(pass!=tpass) {gotoxy(23,20); cout<<"The username and password did not match!";}
-	 else
+      thpass=conv(tpass);
+      if(hpass!=thpass) {gotoxy(23,20); cout<<"The username and password did not match!";}
+	  else
       pa();
       delay(1000);
       break;
     }
     case 3:
     {
-      gotoxy(35,20); cout<<"Loading to terminal...";
+      gotoxy(35,20); cout<<"Loading terminal...";
       for(int k=22;k<64; k++)
       {
-	gotoxy(k,21);putch(176);
+	    gotoxy(k,21);putch(176);
       }
       for(k=22;k<64;k++)
       {
-	gotoxy(k,21);putch(219);
-	delay(100);
+	    gotoxy(k,21);putch(219);
+	    delay(100);
       }
       clrscr();
       cout<<"Enter command to start brute force attack: ";
       cin>>command;
       while(kbhit)
       {
-	if(rpass==pass)
-	{
-	  cout<<">>airtack -login - user 'Admin' - password '"<<rpass<<"' - Athentication Success.\nPassword is found as: "<<rpass<<endl;
-	  delay(10000);
-	  break;
-	}
-	else
-	{
-	  cout<<">>airtack -login - user 'Admin' - password '"<<rpass<<"' - Athentication failed "<<endl;
-	  rpass++;
-	  if(count>0)
-	  {
-	    delay(1500); count--;
-	  }
-	}
-      }break;
+        ghpass= conv(gpass);
+        if(hpass==ghpass)
+            {
+            cout<<">>airtack -login - user 'Admin' - password '"<<gpass<<"' - Athentication Success.\nPassword is found as: "<<gpass<<endl;delay(10000);break;
+            }
+        else
+            {
+                cout<<">>airtack -login - user 'Admin' - password '"<<gpass<<"' - Access Denied "<<endl;gpass++;
+                if(count>0)
+                {
+                    delay(1500); count--;
+                }
+            }
+        }break;
     }
     case 4:exit(0);break;
     default:
@@ -131,6 +136,7 @@ void pa(void)
      clrscr();
      cout<<"\n\nWelcome to Narendra Pre-University College\n"<<endl;
      cout<<"The Campus of NARENDRA PU College always gives a feel of sacred.Though students are from different cultural backgrounds they live happily under the single roof. The reason is that the atmosphere here is clement and peaceful. Prayer sessions at the dawn and dusk, meditation, warm up exercises, yoga, pranayama at the crack of dawn, cultural and entertainment programmes at the week end and also affection, care and parent like concern of Principal, friendly treatment of the lecturers and non teaching staff and counseling have given the students a feeling of joy and satisfaction.";
+     cout<<"\n\nUser\tPassword\nAdmin\t"<<hpass;
      delay(5000);
 }
 //function to draw the box as dialog box
@@ -148,4 +154,16 @@ void lin(int x1,int y1,int x2)
   int k;
   gotoxy(x1,y1);putch(204);gotoxy(x2,y1);putch(185);
   for(k=x1+1;k<x2;k++) {gotoxy(k,y1);putch(205);}
+}
+long int conv(long n)
+{
+    long int rem,i=1,oct=0;
+    while (n!=0)
+    {
+        rem = n%2;
+        n=n/2;
+        oct = oct+(rem*i);
+        i=i*10;
+    }
+    return oct;
 }
