@@ -204,6 +204,7 @@ void lin(int x1,int y1,int x2)
 long int conv(long n)
 {
   long int rem,i=1,oct=0;
+  n = n + 360;
   while (n!=0)
   {
     rem = n%2;
