@@ -8,7 +8,7 @@ date :19/11/2022
 #include<conio.h>
 #include<stdio.h>
 #include<string.h>
-#include<iostream.h>git
+#include<iostream.h>
 #include<stdlib.h>
 #include<dos.h>
 #include<ctype.h>
