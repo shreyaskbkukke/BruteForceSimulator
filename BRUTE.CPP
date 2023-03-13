@@ -169,9 +169,9 @@ void bo(int x1, int y1, int x2, int y2)
 {
 	int x;
 	gotoxy(x1,y1);putch(201);
-  gotoxy(x2,y1);putch(187);
+  	gotoxy(x2,y1);putch(187);
 	gotoxy(x1,y2);putch(200);
-  gotoxy(x2,y2);putch(188);
+  	gotoxy(x2,y2);putch(188);
 	for(x=x1+1;x<x2;x++)
   {
     gotoxy(x,y1);
