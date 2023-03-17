@@ -159,8 +159,8 @@ void main()
 void pa(void)
 {
   clrscr();
-  cout<<"\n\nWelcome to Narendra Pre-University College\n"<<endl;
-  cout<<"The Campus of NARENDRA PU College always gives a feel of sacred.Though students are from different cultural backgrounds they live happily under the single roof. The reason is that the atmosphere here is clement and peaceful. Prayer sessions at the dawn and dusk, meditation, warm up exercises, yoga, pranayama at the crack of dawn, cultural and entertainment programmes at the week end and also affection, care and parent like concern of Principal, friendly treatment of the lecturers and non teaching staff and counseling have given the students a feeling of joy and satisfaction.";
+  cout<<"\n\nGoogle Developer Student Clubs(GDSC)-VC\nVivekananda College of Arts, Science and Commerce - Puttur\n"<<endl;
+  cout<<"GDSC are community groups for college and university students interested in Google developer technologies. Students from all undergraduate or graduate programs with an interest in growing as a developer are welcome. By joining a GDSC, students grow their knowledge in a peer-to-peer learning environment and build solutions for local businesses and their communities.";
   cout<<"\n\nUser\tPassword\nAdmin\t"<<hpass;
   delay(5000);
 }
